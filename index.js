@@ -15,4 +15,7 @@ Epoch date 	Human-readable date (GMT)
 /* 
   C:\Users\nicol\Desktop\AppLogs_2023-03-28_14-43-08\Apps\Valorant Tracker\background.html.log
   data -> game -> profile -> matches -> competitive
+
+  https://api.tracker.gg/api/v2/valorant/standard/matches/riot/Roberto%20Drone%20Jr%23SOOVA?type=competitive
+  https://api.tracker.gg/api/v2/valorant/standard/matches/riot/Roberto%20Drone%20Jr%23SOOVA?type=competitive&next=33
 */

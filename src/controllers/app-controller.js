@@ -30,7 +30,6 @@ class AppController {
       if (fileName.startsWith('highlights') && fileName.endsWith('.log')) {
         const content = fs.readFileSync(filePath, 'utf8');
         const regex = /\(INFO\) replay media event: ([\s\S]*?)\n\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/gm;
-        // const matches = [...content.matchAll(regex)];
         const objects = [];
         let match;
         while ((match = regex.exec(content)) !== null) {
@@ -45,7 +44,7 @@ class AppController {
           processed: false,
           id: index,
           values: objects
-        });        
+        });
         tempResult.highLightsLogs = highLightsLogs;
       }
 
@@ -73,7 +72,6 @@ class AppController {
       }
     });
     this.jsondbService.push('/', tempResult);
-    // console.log('tempResult', tempResult.matchersLogs[0].values[0].data.game.profile.matches.competitive);
   }
 }
 
