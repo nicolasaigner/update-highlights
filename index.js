@@ -1,9 +1,8 @@
 import AppController from './src/controllers/app-controller.js';
-import JSONDBService from './src/services/jsondb-service.js';
 
-const db = await new JSONDBService('db');
 const app = new AppController();
 app.run();
+
 
 
 /* 

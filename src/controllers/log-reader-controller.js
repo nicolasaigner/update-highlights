@@ -1,23 +1,21 @@
-import fs from 'fs/promises';
+import fs from 'fs';
 
 class LogReaderController {
-    constructor(filePath) {
-        this.filePath = filePath;
-    }
+  constructor(path) {
+    this.path = path;
+  }
 
-    async read() {
-        const logData = await fs.readFile(this.filePath, 'utf8');
-        const regex = /\(INFO\) replay media event: ([\s\S]*?)\n\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}/gm;
-        const objects = [];
-        let match;
-        while ((match = regex.exec(logData)) !== null) {
-            const jsonString = match[1];
-            const obj = JSON.parse(jsonString);
-            objects.push(obj);
+  read() {
+    return new Promise((resolve, reject) => {
+      fs.readFile(this.path, 'utf-8', (err, data) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(data);
         }
-
-        return objects;
-    }
+      });
+    });
+  }
 }
 
 export default LogReaderController;
